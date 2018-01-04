@@ -36,7 +36,7 @@ static void scrypt_generate(const char *plaintext, const char *user ATTR_UNUSED,
 {
         char *password;
 
-        password = t_malloc(crypto_pwhash_scryptsalsa208sha256_STRBYTES);
+        password = t_malloc_no0(crypto_pwhash_scryptsalsa208sha256_STRBYTES);
         if (crypto_pwhash_scryptsalsa208sha256_str
                 (password, plaintext, strlen(plaintext),
                  crypto_pwhash_scryptsalsa208sha256_OPSLIMIT_INTERACTIVE,
@@ -66,7 +66,7 @@ static void argon2_generate(const char *plaintext, const char *user ATTR_UNUSED,
 {
         char *password;
 
-        password = t_malloc(crypto_pwhash_scryptsalsa208sha256_STRBYTES);
+        password = t_malloc_no0(crypto_pwhash_scryptsalsa208sha256_STRBYTES);
         if (crypto_pwhash_str
                 (password, plaintext, strlen(plaintext),
                  crypto_pwhash_OPSLIMIT_INTERACTIVE,
